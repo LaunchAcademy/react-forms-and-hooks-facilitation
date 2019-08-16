@@ -2,31 +2,14 @@ import React, {useState} from 'react';
 
 import MushroomTile from "./MushroomTile"
 
-const defaultMushrooms = [
-  {
-    id: 1,
-    name: "Portabella",
-    taste: "yummy"
-  },
-  {
-    id: 2,
-    name: "Lion's Mane",
-    taste: "umami"
-  },
-  {
-    id: 3,
-    name: "Reishi",
-    taste: "chalky"
-  }
-]
+
 
 const MushroomList = (props) => {
-  const [mushrooms, setMushrooms] = useState(defaultMushrooms)
 
-  const mushroomComponents = mushrooms.map((mushroom) => {
+  const mushroomComponents = props.mushrooms.map((mushroom) => {
     return(
       <MushroomTile
-        key={mushroom.id}
+        key={mushroom.name}
         name={mushroom.name}
         taste={mushroom.taste}
       />
