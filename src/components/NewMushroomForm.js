@@ -1,8 +1,8 @@
 import React, { useState} from "react"
 
+import TextField from "./TextField"
+
 const NewMushroomForm = props => {
-
-
   const [mushroomObject, setMushroomObject] = useState({
     name: "",
     taste: ""
@@ -15,31 +15,17 @@ const NewMushroomForm = props => {
     })
   }
 
-
-  const [name, setName] = useState("")
-  const handleNameChange = (event) => {
-    setName(event.currentTarget.value)
-  }
-
-  const [taste, setTaste] = useState("")
-  const handleTasteChange = (event) => {
-    setTaste(event.currentTarget.value)
-  }
-
   const clearForm = () => {
-    setName("")
-    setTaste("")
+    setMushroomObject({
+      name: "",
+      taste: ""
+    })
   }
 
   const handleMushroomFormSubmit = (event) => {
     event.preventDefault()
 
-    const mushroomPayload = {
-      name: name,
-      taste: taste
-    }
-
-    props.addNewMushroom(mushroomPayload)
+    props.addNewMushroom(mushroomObject)
     clearForm()
   }
 
@@ -48,28 +34,23 @@ const NewMushroomForm = props => {
     <form onSubmit={handleMushroomFormSubmit} className="callout" id="new-mushroom-form">
       <h3>New Mushroom</h3>
       <div>
-        <label htmlFor="name">Mushroom Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={name}
-          onChange={handleNameChange}
+        <TextField
+          inputName="name"
+          inputValue={mushroomObject.name}
+          handleFieldChange={handleFieldChange}
         />
       </div>
 
       <div>
-        <label htmlFor="taste">Taste:</label>
-        <input
-          type="text"
-          id="taste"
-          name="taste"
-          value={taste}
-          onChange={handleTasteChange}
+        <TextField
+          inputName="taste"
+          inputValue={mushroomObject.taste}
+          handleFieldChange={handleFieldChange}
         />
       </div>
 
       <input type="submit" className="button" value="ADD FUNGI"/>
+      
     </form>
     <button onClick={clearForm}> Clear Form </button>
     </>

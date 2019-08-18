@@ -25,7 +25,6 @@ const App = (props) => {
   const [mushrooms, setMushrooms] = useState(defaultMushrooms)
 
   const addNewMushroom = (newMushroomObject) => {
-    // setMushrooms(mushrooms.concat(newMushroomObject))
     setMushrooms([...mushrooms, newMushroomObject])
   }
 

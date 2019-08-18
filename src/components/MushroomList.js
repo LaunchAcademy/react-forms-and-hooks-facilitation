@@ -2,10 +2,7 @@ import React, {useState} from 'react';
 
 import MushroomTile from "./MushroomTile"
 
-
-
 const MushroomList = (props) => {
-
   const mushroomComponents = props.mushrooms.map((mushroom) => {
     return(
       <MushroomTile
