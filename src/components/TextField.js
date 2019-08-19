@@ -3,7 +3,7 @@ import React from 'react';
 const TextField = ({ inputName, inputValue, handleFieldChange }) => {
   return(
     <label htmlFor={inputName}>
-      Mushroom {inputName}:
+      Item {inputName}:
       <input
         type="text"
         id={inputName}
