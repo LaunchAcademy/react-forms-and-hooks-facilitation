@@ -1,44 +1,43 @@
 import React, {useState} from 'react';
 
-import MushroomList from "./MushroomList"
-import NewMushroomForm from "./NewMushroomForm"
+import ItemList from "./ItemList"
+import NewItemForm from "./NewItemForm"
 
-const defaultMushrooms = [
+const defaultItems = [
   {
     id: 1,
-    name: "Portabella",
-    taste: "yummy"
+    name: "Fire Ferret",
+    description: "its adorable"
   },
   {
     id: 2,
-    name: "Lion's Mane",
-    taste: "umami"
+    name: "Dinglehopper",
+    description: "shiny and perhaps a powerful artifact"
   },
   {
     id: 3,
     name: "Reishi",
-    taste: "chalky"
+    description: "chalky"
   }
 ]
 
 const App = (props) => {
-  const [mushrooms, setMushrooms] = useState(defaultMushrooms)
+  const [items, setItems] = useState(defaultItems)
 
-  const addNewMushroom = (newMushroomObject) => {
-    // setMushrooms(mushrooms.concat(newMushroomObject))
-    setMushrooms([...mushrooms, newMushroomObject])
+  const addNewItem = (newItemObject) => {
+    setItems([...items, newItemObject])
   }
 
   return(
     <div>
-      <h1>MUSHROOMS</h1>
+      <h1>Items</h1>
 
-      <NewMushroomForm
-        addNewMushroom={addNewMushroom}
+      <NewItemForm
+        addNewItem={addNewItem}
       />
 
-      <MushroomList
-        mushrooms={mushrooms}
+      <ItemList
+        items={items}
       />
     </div>
   )
